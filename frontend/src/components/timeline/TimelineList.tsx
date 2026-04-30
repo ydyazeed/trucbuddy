@@ -52,9 +52,9 @@ interface Props {
 }
 
 export function TimelineList({ schedule, emphasizeIndex, onSelectStop, busyScheduleIndex }: Props) {
-  const { required, pois, loading } = useStopOptions(schedule);
-  const stopByScheduleIndex = new Map(required.map(r => [r.scheduleIndex, r] as const));
   const [expanded, setExpanded] = useState<number | null>(null);
+  const { required, pois, loading } = useStopOptions(schedule, expanded);
+  const stopByScheduleIndex = new Map(required.map(r => [r.scheduleIndex, r] as const));
 
   return (
     <ol className="space-y-3">

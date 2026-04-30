@@ -63,7 +63,7 @@ async function autoPickPOI(entry: TimelineEntry): Promise<POI | null> {
   };
 }
 
-export function useStopOptions(schedule: TimelineEntry[]) {
+export function useStopOptions(schedule: TimelineEntry[], activeScheduleIndex: number | null = null) {
   const required = useMemo<RequiredStop[]>(() => {
     let cum = 0;
     const out: RequiredStop[] = [];
@@ -98,58 +98,60 @@ export function useStopOptions(schedule: TimelineEntry[]) {
   const [pois, setPois] = useState<Record<string, StopOptionList>>({});
   const [loading, setLoading] = useState(false);
 
+  const target =
+    activeScheduleIndex !== null
+      ? required.find(r => r.scheduleIndex === activeScheduleIndex)
+      : null;
+  const targetKey = target
+    ? (() => {
+        const a = target.entry.auto_location ?? target.entry.location;
+        return `${target.uiIndex}|${a.lat},${a.lng}|${target.entry.location.lat},${target.entry.location.lng}|${target.maxDriveMi}|${target.origin.lat},${target.origin.lng}`;
+      })()
+    : null;
+
   useEffect(() => {
+    if (!target) {
+      setLoading(false);
+      return;
+    }
     let cancel = false;
     setLoading(true);
-    Promise.all(
-      required.map(async ({ entry, uiIndex, origin, maxDriveMi }) => {
-        const auto = entry.auto_location ?? entry.location;
-        const radius = entry.category === "fuel" ? 15 : 10;
-        const found = await findStops(auto, radius, entry.category);
-        const enriched: POIWithStatus[] = found.slice(0, 8).map(p => {
-          const distMi = haversineMiles(origin, { lat: p.lat, lng: p.lng }) * ROAD_FACTOR;
-          return {
-            ...p,
-            distanceFromOriginMi: distMi,
-            outsideHos: maxDriveMi > 0 && distMi > maxDriveMi + HOS_TOLERANCE_MI,
-          };
-        });
-        const hasAlternatives = enriched.length > 0;
-        const items: POIWithStatus[] = hasAlternatives ? enriched : [];
-        const isSwapped = !isSameLocation(auto, entry.location);
-        if (isSwapped) {
-          const autoOption = await autoPickPOI(entry);
-          if (autoOption && !items.some(p => p.id === autoOption.id)) {
-            items.unshift({
-              ...autoOption,
-              distanceFromOriginMi: maxDriveMi,
-              outsideHos: false,
-            });
-          }
-        }
-        return [String(uiIndex), { items, hasAlternatives, isSwapped }] as const;
-      }),
-    )
-      .then(entries => {
-        if (cancel) return;
-        const map: Record<string, StopOptionList> = {};
-        for (const [k, v] of entries) map[k] = v;
-        setPois(map);
-      })
-      .finally(() => {
-        if (!cancel) setLoading(false);
+    (async () => {
+      const { entry, uiIndex, origin, maxDriveMi } = target;
+      const auto = entry.auto_location ?? entry.location;
+      const radius = entry.category === "fuel" ? 15 : 10;
+      const found = await findStops(auto, radius, entry.category);
+      const enriched: POIWithStatus[] = found.slice(0, 8).map(p => {
+        const distMi = haversineMiles(origin, { lat: p.lat, lng: p.lng }) * ROAD_FACTOR;
+        return {
+          ...p,
+          distanceFromOriginMi: distMi,
+          outsideHos: maxDriveMi > 0 && distMi > maxDriveMi + HOS_TOLERANCE_MI,
+        };
       });
+      const hasAlternatives = enriched.length > 0;
+      const items: POIWithStatus[] = hasAlternatives ? enriched : [];
+      const isSwapped = !isSameLocation(auto, entry.location);
+      if (isSwapped) {
+        const autoOption = await autoPickPOI(entry);
+        if (autoOption && !items.some(p => p.id === autoOption.id)) {
+          items.unshift({
+            ...autoOption,
+            distanceFromOriginMi: maxDriveMi,
+            outsideHos: false,
+          });
+        }
+      }
+      if (cancel) return;
+      setPois(prev => ({ ...prev, [String(uiIndex)]: { items, hasAlternatives, isSwapped } }));
+      setLoading(false);
+    })().catch(() => {
+      if (!cancel) setLoading(false);
+    });
     return () => {
       cancel = true;
     };
-  }, [
-    JSON.stringify(
-      required.map(r => {
-        const a = r.entry.auto_location ?? r.entry.location;
-        return `${a.lat},${a.lng}|${r.entry.location.lat},${r.entry.location.lng}|${r.maxDriveMi}|${r.origin.lat},${r.origin.lng}`;
-      }),
-    ),
-  ]);
+  }, [targetKey]);
 
   return { required, pois, loading };
 }

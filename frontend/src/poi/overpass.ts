@@ -2,7 +2,7 @@ import type { GeoPoint, StopCategory } from "@/hos/types";
 import { reverseGeocode } from "@/geocode/photon";
 
 const ENDPOINT = "https://overpass.kumi.systems/api/interpreter";
-const TIMEOUT_MS = 3000;
+const TIMEOUT_MS = 15000;
 
 export interface POI {
   id: string;
@@ -130,8 +130,10 @@ export async function findStops(
         }
       }),
     );
-    cache[key] = { ts: Date.now(), pois };
-    saveCache(cache);
+    if (pois.length > 0) {
+      cache[key] = { ts: Date.now(), pois };
+      saveCache(cache);
+    }
     return pois;
   } catch {
     return [];
