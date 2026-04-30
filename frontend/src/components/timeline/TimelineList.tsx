@@ -182,8 +182,11 @@ export function TimelineList({ schedule, emphasizeIndex, onSelectStop, busySched
                               disabled={busyScheduleIndex === idx || blocked}
                               onClick={async () => {
                                 if (blocked) return;
-                                await onSelectStop?.(idx, p);
-                                setExpanded(null);
+                                try {
+                                  await onSelectStop?.(idx, p);
+                                } finally {
+                                  setExpanded(null);
+                                }
                               }}
                             >
                               {busyScheduleIndex === idx ? "Saving…" : "Choose"}

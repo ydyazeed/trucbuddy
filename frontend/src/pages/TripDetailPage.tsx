@@ -132,58 +132,67 @@ export function TripDetailPage() {
       return;
     }
     setBusyStopIndex(stopIndex);
+    const tripStart = trip.inputs.current;
+    const newSchedule = swapStop(
+      planSchedule,
+      stopIndex,
+      { lat: poi.lat, lng: poi.lng, label: poi.name },
+      { lat: tripStart.lat, lng: tripStart.lng, label: tripStart.label },
+    );
+    const newDailyLogs = buildDailyLogs(newSchedule);
+    const totalDistance = newSchedule
+      .filter(e => e.category === "drive")
+      .reduce((s, e) => s + e.distance_mi, 0);
+    const totalDriveMin = newSchedule
+      .filter(e => e.category === "drive")
+      .reduce((s, e) => s + (new Date(e.end).getTime() - new Date(e.start).getTime()) / 60_000, 0);
+    const newPlan = {
+      ...(trip.plan as Record<string, unknown>),
+      schedule: newSchedule,
+      dailyLogs: newDailyLogs,
+      distanceMi: totalDistance,
+      durationHr: totalDriveMin / 60,
+    };
+    const existingLogs = trip.logs ?? [];
+
     try {
-      const tripStart = trip.inputs.current;
-      const newSchedule = swapStop(
-        planSchedule,
-        stopIndex,
-        { lat: poi.lat, lng: poi.lng, label: poi.name },
-        { lat: tripStart.lat, lng: tripStart.lng, label: tripStart.label },
-      );
-      const newDailyLogs = buildDailyLogs(newSchedule);
-      const totalDistance = newSchedule
-        .filter(e => e.category === "drive")
-        .reduce((s, e) => s + e.distance_mi, 0);
-      const totalDriveMin = newSchedule
-        .filter(e => e.category === "drive")
-        .reduce((s, e) => s + (new Date(e.end).getTime() - new Date(e.start).getTime()) / 60_000, 0);
-      const newPlan = {
-        ...(trip.plan as Record<string, unknown>),
-        schedule: newSchedule,
-        dailyLogs: newDailyLogs,
-        distanceMi: totalDistance,
-        durationHr: totalDriveMin / 60,
-      };
       await update.mutateAsync({ plan: newPlan as any });
-
-      const newLogsByDate = new Map(newDailyLogs.map(l => [l.log_date, l] as const));
-      for (const log of trip.logs ?? []) {
-        if (log.signed) continue;
-        const next = newLogsByDate.get(log.log_date);
-        if (!next) continue;
-        await patchLog.mutateAsync({
-          date: log.log_date,
-          log_data: { ...next, fields: { ...next.fields, ...log.log_data.fields } },
-        });
-      }
-
-      await append.mutateAsync({
-        event_type: "replan",
-        client_event_id: uuid(),
-        occurred_at: new Date().toISOString(),
-        payload: {
-          reason: "stop_choice",
-          stop_index: stopIndex,
-          poi_id: poi.id,
-          poi_name: poi.name,
-        },
-      });
-      toast.success(`Stop set to ${poi.name}. Times and logs updated downstream.`);
     } catch {
       toast.error("Could not save stop choice.");
-    } finally {
       setBusyStopIndex(null);
+      return;
     }
+
+    setBusyStopIndex(null);
+    toast.success(`Stop set to ${poi.name}. Times and logs updating…`);
+
+    void (async () => {
+      try {
+        const newLogsByDate = new Map(newDailyLogs.map(l => [l.log_date, l] as const));
+        for (const log of existingLogs) {
+          if (log.signed) continue;
+          const next = newLogsByDate.get(log.log_date);
+          if (!next) continue;
+          await patchLog.mutateAsync({
+            date: log.log_date,
+            log_data: { ...next, fields: { ...next.fields, ...log.log_data.fields } },
+          });
+        }
+        await append.mutateAsync({
+          event_type: "replan",
+          client_event_id: uuid(),
+          occurred_at: new Date().toISOString(),
+          payload: {
+            reason: "stop_choice",
+            stop_index: stopIndex,
+            poi_id: poi.id,
+            poi_name: poi.name,
+          },
+        });
+      } catch {
+        toast.error("Stop saved, but log/event sync failed. Refresh to retry.");
+      }
+    })();
   };
 
   const handleDelete = async () => {
