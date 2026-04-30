@@ -1,0 +1,42 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - link "TrucBuddy home" [ref=e6] [cursor=pointer]:
+        - /url: /trips
+        - generic [ref=e11]: TrucBuddy
+    - main [ref=e15]:
+      - generic [ref=e41]:
+        - generic [ref=e42]:
+          - paragraph [ref=e43]: New trip
+          - heading "Plan a route" [level=1] [ref=e44]
+          - paragraph [ref=e45]: Property-carrying driver · 70hr/8day cycle · auto-fueling every 1,000 mi · 1h pickup & dropoff.
+        - generic [ref=e46]:
+          - generic [ref=e47]:
+            - heading "Trip inputs" [level=3] [ref=e48]
+            - paragraph [ref=e49]: We'll plan a truck-aware route with HOS-compliant stops and one daily log per calendar day.
+          - generic [ref=e51]:
+            - generic [ref=e52]:
+              - generic [ref=e53]: Current location *
+              - generic [ref=e54]:
+                - img
+                - textbox "Current location *" [ref=e55]:
+                  - /placeholder: Search for a city or address
+                  - text: Chicago, Cook County, Illinois, United States
+            - generic [ref=e56]:
+              - generic [ref=e57]: Pickup location *
+              - generic [ref=e58]:
+                - img
+                - textbox "Pickup location *" [ref=e59]:
+                  - /placeholder: Search for a city or address
+            - generic [ref=e60]:
+              - generic [ref=e61]: Dropoff location *
+              - generic [ref=e62]:
+                - img
+                - textbox "Dropoff location *" [ref=e63]:
+                  - /placeholder: Search for a city or address
+            - generic [ref=e64]:
+              - generic [ref=e65]: Current cycle used (hrs) *
+              - spinbutton "Current cycle used (hrs) *" [ref=e66]: "0"
+              - paragraph [ref=e67]: 0–70. We assume the hours are evenly distributed across the past 8 days.
+            - button "Plan trip" [ref=e68] [cursor=pointer]
+  - region "Notifications alt+T"

@@ -1,0 +1,59 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - link "TrucBuddy home" [ref=e6] [cursor=pointer]:
+        - /url: /trips
+        - generic [ref=e11]: TrucBuddy
+    - main [ref=e15]:
+      - generic [ref=e144]:
+        - generic [ref=e145]:
+          - paragraph [ref=e146]: Trip
+          - generic [ref=e147]:
+            - heading "St. Louis, Missouri, United States → Dallas, Texas, United States" [level=1] [ref=e148]
+            - generic [ref=e149]: planned
+          - paragraph [ref=e150]: 956 mi · cycle used 12h · drive 17.4h
+        - button "Start trip" [ref=e151] [cursor=pointer]
+        - generic [ref=e438]:
+          - generic:
+            - generic:
+              - img
+            - generic:
+              - button "1" [ref=e441] [cursor=pointer]:
+                - generic [ref=e443]: "1"
+              - button "P" [ref=e445] [cursor=pointer]:
+                - generic [ref=e447]: P
+              - button "D" [ref=e449] [cursor=pointer]:
+                - generic [ref=e451]: D
+              - button "1" [ref=e453] [cursor=pointer]:
+                - generic [ref=e455]: "1"
+          - generic:
+            - generic [ref=e457]:
+              - button "Zoom in" [ref=e458] [cursor=pointer]: +
+              - button "Zoom out" [ref=e459] [cursor=pointer]: −
+            - generic [ref=e460]:
+              - link "Leaflet" [ref=e461] [cursor=pointer]:
+                - /url: https://leafletjs.com
+                - img [ref=e462]
+                - text: Leaflet
+              - text: "| ©"
+              - link "OpenStreetMap" [ref=e466] [cursor=pointer]:
+                - /url: https://openstreetmap.org/copyright
+    - navigation [ref=e182]:
+      - generic [ref=e183]:
+        - link "Map" [active] [ref=e184] [cursor=pointer]:
+          - /url: /trips/1419733a-a1c2-40cb-9f11-44ad90473107/map
+          - img [ref=e185]
+          - text: Map
+        - link "Timeline" [ref=e187] [cursor=pointer]:
+          - /url: /trips/1419733a-a1c2-40cb-9f11-44ad90473107/timeline
+          - img [ref=e188]
+          - text: Timeline
+        - link "Logs" [ref=e191] [cursor=pointer]:
+          - /url: /trips/1419733a-a1c2-40cb-9f11-44ad90473107/logs
+          - img [ref=e192]
+          - text: Logs
+        - link "More" [ref=e195] [cursor=pointer]:
+          - /url: /trips/1419733a-a1c2-40cb-9f11-44ad90473107/more
+          - img [ref=e196]
+          - text: More
+  - region "Notifications alt+T"

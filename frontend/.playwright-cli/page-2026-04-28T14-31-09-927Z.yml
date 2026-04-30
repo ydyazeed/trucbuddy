@@ -1,0 +1,57 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - link "TrucBuddy home" [ref=e6] [cursor=pointer]:
+        - /url: /trips
+        - generic [ref=e11]: TrucBuddy
+    - main [ref=e15]:
+      - generic [ref=e144]:
+        - generic [ref=e145]:
+          - paragraph [ref=e146]: Trip
+          - generic [ref=e147]:
+            - heading "St. Louis, Missouri, United States → Dallas, Texas, United States" [level=1] [ref=e148]
+            - generic [ref=e149]: planned
+          - paragraph [ref=e150]: 956 mi · cycle used 12h · drive 17.4h
+        - button "Start trip" [ref=e151] [cursor=pointer]
+        - generic [ref=e412]:
+          - generic [ref=e413]:
+            - generic [ref=e414]:
+              - heading "Stops" [level=3] [ref=e415]
+              - paragraph [ref=e416]: Auto-picked stops with optional truck-friendly POI alternatives.
+            - generic [ref=e419]:
+              - heading "rest10 0 mi marker" [level=3] [ref=e421]:
+                - text: rest10
+                - generic [ref=e422]: 0 mi marker
+              - generic [ref=e423]:
+                - paragraph [ref=e424]: "Auto-picked: St. Louis, Missouri, United States"
+                - list [ref=e425]:
+                  - listitem [ref=e426]:
+                    - generic [ref=e427]:
+                      - paragraph [ref=e428]: Mile 1
+                      - paragraph [ref=e429]: milestone · Coordinates only
+                    - button "Choose" [disabled]
+          - generic [ref=e430]:
+            - heading "About this plan" [level=3] [ref=e432]
+            - generic [ref=e433]:
+              - paragraph [ref=e434]: "Average speed: 55 mph · Pickup & dropoff: 1 hour each"
+              - paragraph [ref=e435]: Fueling assumed every 1,000 miles · 70/8 cycle
+              - paragraph [ref=e436]: "Feasibility: ok"
+    - navigation [ref=e182]:
+      - generic [ref=e183]:
+        - link "Map" [ref=e184] [cursor=pointer]:
+          - /url: /trips/1419733a-a1c2-40cb-9f11-44ad90473107/map
+          - img [ref=e185]
+          - text: Map
+        - link "Timeline" [ref=e187] [cursor=pointer]:
+          - /url: /trips/1419733a-a1c2-40cb-9f11-44ad90473107/timeline
+          - img [ref=e188]
+          - text: Timeline
+        - link "Logs" [ref=e191] [cursor=pointer]:
+          - /url: /trips/1419733a-a1c2-40cb-9f11-44ad90473107/logs
+          - img [ref=e192]
+          - text: Logs
+        - link "More" [active] [ref=e195] [cursor=pointer]:
+          - /url: /trips/1419733a-a1c2-40cb-9f11-44ad90473107/more
+          - img [ref=e196]
+          - text: More
+  - region "Notifications alt+T"

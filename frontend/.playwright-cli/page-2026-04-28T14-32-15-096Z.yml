@@ -1,0 +1,194 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - link "TrucBuddy home" [ref=e6] [cursor=pointer]:
+        - /url: /trips
+        - generic [ref=e11]: TrucBuddy
+    - main [ref=e15]:
+      - generic [ref=e144]:
+        - generic [ref=e145]:
+          - paragraph [ref=e146]: Trip
+          - generic [ref=e147]:
+            - heading "St. Louis, Missouri, United States → Dallas, Texas, United States" [level=1] [ref=e148]
+            - generic [ref=e149]: active
+          - paragraph [ref=e150]: 956 mi · cycle used 12h · drive 17.4h
+        - generic [ref=e467]:
+          - generic [ref=e468]:
+            - heading "Active trip" [level=3] [ref=e469]
+            - paragraph [ref=e470]: Live HOS clocks. Tap below to change duty status. GPS captured when you change status.
+          - generic [ref=e471]:
+            - generic [ref=e472]:
+              - generic [ref=e473]:
+                - paragraph [ref=e474]: Drive 11h
+                - paragraph [ref=e475]: 11:00
+              - generic [ref=e476]:
+                - paragraph [ref=e477]: Window 14h
+                - paragraph [ref=e478]: 12:00
+              - generic [ref=e479]:
+                - paragraph [ref=e480]: Until break
+                - paragraph [ref=e481]: 8:00
+              - generic [ref=e482]:
+                - paragraph [ref=e483]: Cycle 70h
+                - paragraph [ref=e484]: 56:00
+            - generic [ref=e485]:
+              - paragraph [ref=e486]: "Next: 30-min break"
+              - paragraph [ref=e487]: in 8h 00m · 440 mi
+            - generic [ref=e488]:
+              - 'button "Current: off duty" [ref=e489] [cursor=pointer]'
+              - button "Complete trip" [ref=e490] [cursor=pointer]
+        - generic [ref=e585]:
+          - generic [ref=e586]:
+            - generic [ref=e587]:
+              - generic [ref=e588]:
+                - paragraph [ref=e589]: Daily log
+                - heading "2026-04-28" [level=2] [ref=e590]
+              - generic [ref=e591]: Unsigned
+            - generic [ref=e592]:
+              - img "Daily log for 2026-04-28" [ref=e593]:
+                - generic [ref=e595]: Off Duty
+                - generic [ref=e596]: 14.50h
+                - generic [ref=e597]: Sleeper Berth
+                - generic [ref=e598]: 0.00h
+                - generic [ref=e599]: Driving
+                - generic [ref=e600]: 8.50h
+                - generic [ref=e601]: On Duty (not driving)
+                - generic [ref=e602]: 1.00h
+                - generic [ref=e603]: "0"
+                - generic [ref=e604]: "1"
+                - generic [ref=e605]: "2"
+                - generic [ref=e606]: "3"
+                - generic [ref=e607]: "4"
+                - generic [ref=e608]: "5"
+                - generic [ref=e609]: "6"
+                - generic [ref=e610]: "7"
+                - generic [ref=e611]: "8"
+                - generic [ref=e612]: "9"
+                - generic [ref=e613]: "10"
+                - generic [ref=e614]: "11"
+                - generic [ref=e615]: "12"
+                - generic [ref=e616]: "13"
+                - generic [ref=e617]: "14"
+                - generic [ref=e618]: "15"
+                - generic [ref=e619]: "16"
+                - generic [ref=e620]: "17"
+                - generic [ref=e621]: "18"
+                - generic [ref=e622]: "19"
+                - generic [ref=e623]: "20"
+                - generic [ref=e624]: "21"
+                - generic [ref=e625]: "22"
+                - generic [ref=e626]: "23"
+                - generic [ref=e627]: "24"
+              - generic [ref=e628]:
+                - generic [ref=e629]:
+                  - generic [ref=e630]: Off Duty
+                  - generic [ref=e631]: 14.50h
+                - generic [ref=e632]:
+                  - generic [ref=e633]: Sleeper Berth
+                  - generic [ref=e634]: 0.00h
+                - generic [ref=e635]:
+                  - generic [ref=e636]: Driving
+                  - generic [ref=e637]: 8.50h
+                - generic [ref=e638]:
+                  - generic [ref=e639]: On Duty (not driving)
+                  - generic [ref=e640]: 1.00h
+              - paragraph [ref=e641]: "Visual snap to 15-min cells; row totals reflect true durations. Daily total: 24.00h."
+            - generic [ref=e642]:
+              - textbox "Truck or tractor number" [ref=e643]:
+                - /placeholder: "Truck / tractor #"
+              - textbox "Trailer number" [ref=e644]:
+                - /placeholder: "Trailer #"
+              - textbox "Carrier name" [ref=e645]
+              - textbox "Carrier address" [ref=e646]
+              - textbox "Shipper name" [ref=e647]
+              - textbox "Shipping document number" [ref=e648]:
+                - /placeholder: "Shipping doc #"
+            - generic [ref=e649]:
+              - button "Save changes" [ref=e650] [cursor=pointer]
+              - button "Sign log" [ref=e651] [cursor=pointer]
+          - generic [ref=e652]:
+            - generic [ref=e653]:
+              - generic [ref=e654]:
+                - paragraph [ref=e655]: Daily log
+                - heading "2026-04-29" [level=2] [ref=e656]
+              - generic [ref=e657]: Unsigned
+            - generic [ref=e658]:
+              - img "Daily log for 2026-04-29" [ref=e659]:
+                - generic [ref=e661]: Off Duty
+                - generic [ref=e662]: 14.12h
+                - generic [ref=e663]: Sleeper Berth
+                - generic [ref=e664]: 0.00h
+                - generic [ref=e665]: Driving
+                - generic [ref=e666]: 8.88h
+                - generic [ref=e667]: On Duty (not driving)
+                - generic [ref=e668]: 1.00h
+                - generic [ref=e669]: "0"
+                - generic [ref=e670]: "1"
+                - generic [ref=e671]: "2"
+                - generic [ref=e672]: "3"
+                - generic [ref=e673]: "4"
+                - generic [ref=e674]: "5"
+                - generic [ref=e675]: "6"
+                - generic [ref=e676]: "7"
+                - generic [ref=e677]: "8"
+                - generic [ref=e678]: "9"
+                - generic [ref=e679]: "10"
+                - generic [ref=e680]: "11"
+                - generic [ref=e681]: "12"
+                - generic [ref=e682]: "13"
+                - generic [ref=e683]: "14"
+                - generic [ref=e684]: "15"
+                - generic [ref=e685]: "16"
+                - generic [ref=e686]: "17"
+                - generic [ref=e687]: "18"
+                - generic [ref=e688]: "19"
+                - generic [ref=e689]: "20"
+                - generic [ref=e690]: "21"
+                - generic [ref=e691]: "22"
+                - generic [ref=e692]: "23"
+                - generic [ref=e693]: "24"
+              - generic [ref=e694]:
+                - generic [ref=e695]:
+                  - generic [ref=e696]: Off Duty
+                  - generic [ref=e697]: 14.12h
+                - generic [ref=e698]:
+                  - generic [ref=e699]: Sleeper Berth
+                  - generic [ref=e700]: 0.00h
+                - generic [ref=e701]:
+                  - generic [ref=e702]: Driving
+                  - generic [ref=e703]: 8.88h
+                - generic [ref=e704]:
+                  - generic [ref=e705]: On Duty (not driving)
+                  - generic [ref=e706]: 1.00h
+              - paragraph [ref=e707]: "Visual snap to 15-min cells; row totals reflect true durations. Daily total: 24.00h."
+            - generic [ref=e708]:
+              - textbox "Truck or tractor number" [ref=e709]:
+                - /placeholder: "Truck / tractor #"
+              - textbox "Trailer number" [ref=e710]:
+                - /placeholder: "Trailer #"
+              - textbox "Carrier name" [ref=e711]
+              - textbox "Carrier address" [ref=e712]
+              - textbox "Shipper name" [ref=e713]
+              - textbox "Shipping document number" [ref=e714]:
+                - /placeholder: "Shipping doc #"
+            - generic [ref=e715]:
+              - button "Save changes" [ref=e716] [cursor=pointer]
+              - button "Sign log" [ref=e717] [cursor=pointer]
+    - navigation [ref=e182]:
+      - generic [ref=e183]:
+        - link "Map" [ref=e184] [cursor=pointer]:
+          - /url: /trips/1419733a-a1c2-40cb-9f11-44ad90473107/map
+          - img [ref=e185]
+          - text: Map
+        - link "Timeline" [ref=e187] [cursor=pointer]:
+          - /url: /trips/1419733a-a1c2-40cb-9f11-44ad90473107/timeline
+          - img [ref=e188]
+          - text: Timeline
+        - link "Logs" [active] [ref=e191] [cursor=pointer]:
+          - /url: /trips/1419733a-a1c2-40cb-9f11-44ad90473107/logs
+          - img [ref=e192]
+          - text: Logs
+        - link "More" [ref=e195] [cursor=pointer]:
+          - /url: /trips/1419733a-a1c2-40cb-9f11-44ad90473107/more
+          - img [ref=e196]
+          - text: More
+  - region "Notifications alt+T"

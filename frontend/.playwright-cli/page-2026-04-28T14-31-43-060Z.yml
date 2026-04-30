@@ -1,0 +1,86 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - link "TrucBuddy home" [ref=e6] [cursor=pointer]:
+        - /url: /trips
+        - generic [ref=e11]: TrucBuddy
+    - main [ref=e15]:
+      - generic [ref=e144]:
+        - generic [ref=e145]:
+          - paragraph [ref=e146]: Trip
+          - generic [ref=e147]:
+            - heading "St. Louis, Missouri, United States → Dallas, Texas, United States" [level=1] [ref=e148]
+            - generic [ref=e149]: active
+          - paragraph [ref=e150]: 956 mi · cycle used 12h · drive 17.4h
+        - generic [ref=e467]:
+          - generic [ref=e468]:
+            - heading "Active trip" [level=3] [ref=e469]
+            - paragraph [ref=e470]: Live HOS clocks. Tap below to change duty status. GPS captured when you change status.
+          - generic [ref=e471]:
+            - generic [ref=e472]:
+              - generic [ref=e473]:
+                - paragraph [ref=e474]: Drive 11h
+                - paragraph [ref=e475]: 11:00
+              - generic [ref=e476]:
+                - paragraph [ref=e477]: Window 14h
+                - paragraph [ref=e478]: 12:00
+              - generic [ref=e479]:
+                - paragraph [ref=e480]: Until break
+                - paragraph [ref=e481]: 8:00
+              - generic [ref=e482]:
+                - paragraph [ref=e483]: Cycle 70h
+                - paragraph [ref=e484]: 56:00
+            - generic [ref=e485]:
+              - paragraph [ref=e486]: "Next: 30-min break"
+              - paragraph [ref=e487]: in 8h 00m · 440 mi
+            - generic [ref=e488]:
+              - 'button "Current: off duty" [ref=e489] [cursor=pointer]'
+              - button "Complete trip" [ref=e490] [cursor=pointer]
+        - generic [ref=e438]:
+          - generic:
+            - generic:
+              - img
+            - generic:
+              - button "1" [ref=e441] [cursor=pointer]:
+                - generic [ref=e492]: "1"
+              - button "P" [ref=e445] [cursor=pointer]:
+                - generic [ref=e495]: P
+              - button "D" [ref=e449] [cursor=pointer]:
+                - generic [ref=e498]: D
+              - button "1" [ref=e453] [cursor=pointer]:
+                - generic [ref=e501]: "1"
+          - generic:
+            - generic [ref=e457]:
+              - button "Zoom in" [ref=e458] [cursor=pointer]: +
+              - button "Zoom out" [ref=e459] [cursor=pointer]: −
+            - generic [ref=e460]:
+              - link "Leaflet" [ref=e461] [cursor=pointer]:
+                - /url: https://leafletjs.com
+                - img [ref=e462]
+                - text: Leaflet
+              - text: "| ©"
+              - link "OpenStreetMap" [ref=e466] [cursor=pointer]:
+                - /url: https://openstreetmap.org/copyright
+    - navigation [ref=e182]:
+      - generic [ref=e183]:
+        - link "Map" [ref=e184] [cursor=pointer]:
+          - /url: /trips/1419733a-a1c2-40cb-9f11-44ad90473107/map
+          - img [ref=e185]
+          - text: Map
+        - link "Timeline" [ref=e187] [cursor=pointer]:
+          - /url: /trips/1419733a-a1c2-40cb-9f11-44ad90473107/timeline
+          - img [ref=e188]
+          - text: Timeline
+        - link "Logs" [ref=e191] [cursor=pointer]:
+          - /url: /trips/1419733a-a1c2-40cb-9f11-44ad90473107/logs
+          - img [ref=e192]
+          - text: Logs
+        - link "More" [ref=e195] [cursor=pointer]:
+          - /url: /trips/1419733a-a1c2-40cb-9f11-44ad90473107/more
+          - img [ref=e196]
+          - text: More
+  - region "Notifications alt+T":
+    - list:
+      - listitem [ref=e503]:
+        - img [ref=e505]
+        - generic [ref=e508]: Trip started.
