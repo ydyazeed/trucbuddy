@@ -1,7 +1,7 @@
 import type { GeoPoint, StopCategory } from "@/hos/types";
 import { reverseGeocode } from "@/geocode/photon";
 
-const ENDPOINT = "https://overpass-api.de/api/interpreter";
+const ENDPOINT = "https://overpass.kumi.systems/api/interpreter";
 const TIMEOUT_MS = 3000;
 
 export interface POI {
@@ -74,7 +74,10 @@ export async function findStops(
   try {
     const res = await fetch(ENDPOINT, {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        Accept: "application/json",
+      },
       body: `data=${encodeURIComponent(query)}`,
       signal: controller.signal,
     });
